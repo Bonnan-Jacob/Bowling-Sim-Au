@@ -1,3 +1,6 @@
+<img width="818" alt="image" src="https://user-images.githubusercontent.com/48603548/146503737-6835c7aa-3648-4dfa-89e1-97c341149645.png">
+
+
 # `BowlingSim`
 
 This project is bootstrapped by [aurelia-cli](https://github.com/aurelia/cli).
