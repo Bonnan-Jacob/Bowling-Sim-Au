@@ -24,19 +24,18 @@ export class App {
     var score: number = 0;
 
     console.log(lastFrameSize);
-    for(let i = 0; i < game.length - lastFrameSize; i+=2){ 
-
+    for(let i = 0; i < game.length - lastFrameSize; i+=2){
         //strike
         if(game[i] === 10){
-          scores.push(10 + game[i+1] + (game[i+2] || 10));
-          score += 10 + game[i+1] + (game[i+2] || 10); 
+          scores.push(10 + game[i+1] + (game[i+2] || 0));
+          score += 10 + game[i+1] + (game[i+2] || 0); 
           i--;
         }
  
         //spare 
         else if(game[i] + game[i+1] === 10){
-          scores.push(10 + (game[i+2] || 10));
-          score += 10 + (game[i+2] || 10); 
+          scores.push(10 + (game[i+2] || 0));
+          score += 10 + (game[i+2] || 0); 
         }
 
         else{
