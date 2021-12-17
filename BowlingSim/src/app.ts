@@ -15,13 +15,17 @@ export class App {
     this.gameScore = this.scoreGame(this.game);
   }
 
-  scoreGame(game: number[]){
+  scoreGame(game: any){
+    var lastFrameSize = game[9].length - 1;
+    
     game = game.flat();
     
     var scores = [];
     var score: number = 0;
 
-    for(let i = 0; i < game.length - 1; i+=2){ 
+    console.log(lastFrameSize);
+    for(let i = 0; i < game.length - lastFrameSize; i+=2){ 
+
         //strike
         if(game[i] === 10){
           scores.push(10 + game[i+1] + (game[i+2] || 10));
@@ -62,14 +66,19 @@ export class App {
       }
     }
  
+    //spare
     if(gameResult[9][0] === 10)
     {
       gameResult[9][1] = this.generateTurn();
     }  
 
-    if(gameResult[9][0] + gameResult[9][1] > 9)
+    //strike || Spare
+    if(gameResult[9][0] + gameResult[9][1] === 10 ||  gameResult[9][1] === 10)
     {
       gameResult[9][2] = this.generateTurn();
+    }
+    else if(gameResult[9][1] < 10 && gameResult[9][0] === 10){
+      gameResult[9][2] = this.generateTurn(gameResult[9][1]);
     }
 
     return gameResult;
