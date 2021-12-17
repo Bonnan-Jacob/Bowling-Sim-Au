@@ -43,7 +43,7 @@ export class App {
     }
 
     if(scores.length === 11){
-      scores[10] += scores[11];
+      scores[9] += scores[10];
       scores.pop();
     }
 
